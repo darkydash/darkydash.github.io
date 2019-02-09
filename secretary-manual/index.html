@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Аве секретариату!</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Гайд по работе секретарей в Студенческом совете локалок НИУ ВШЭ</h2>
+				<h4>Секретариат БСС</h4>
+			</section>
+			<section>
+				<h3>Работа секретаря локального студенческого совета</h3>
+				<p>Работа секретаря в студсовете заключается в работе с протоколами
+					заседаний и выписками.
+					Когда в студсовет НИУ ВШЭ (он же БСС) приходит дисциплинарка, то ее направляют
+					в правовой комитет студсовета НИУ ВШЭ и локальному студсовету.</p>
+				<p>Как только ты получил дисциплинарку, начинается твоя работа.</p>
+			</section>
+			<section>
+				<h3>Нововведения</h3>
+				<p>Раньше локальные студсоветы направляли выписки по дисциплинаркам обратно в
+					БСС, однако, с принятием нового положения, этого делать больше не придется.
+					Однако, на данный момент не решен вопрос взаимодействия с правовым комитетом.
+					Как только вопрос будет решен и локальные студсоветы получат право самостоятельно отправлять
+					выписки по дисциплинаркам, будет добавлен соответствующий пункт.</p>
+				<p>Второе нововведение, введение весов. Для упрощения подсчета голосов ведется разработка
+					программы (должна быть готова к первому заседанию)</p>
+			</section>
+			<section>
+				<section>
+					<h2>Работа с выписками и дисциплинарками</h2>
+				</section>
+				<section>
+					<p>Итак. Студент сделал что-то плохое и администрация решила предъявить ему
+						дисциплинарное взыскание. Учебный офис его образовательной программы пишет
+						<strong>акт, о дисциплинарном проступке</strong> и запрашивает со студента
+						<strong>объяснительную</strong> (либо, если студент ее не предоставляет, пишет
+						<strong>акт о непредоставлении объяснительной</strong>)</p>
+				</section>
+				<section>
+					<p>Таким образом, минимальный набор <strong>необходимых</strong> документов
+						следующий:</p>
+					<ol>
+						<li>Акт о дисциплинарном проступке</li>
+						<li>Объяснительная (либо акт о непредоставлении объяснительной)</li>
+					</ol>
+					<p>Если учебный офис <strong>не</strong> предоставил один из этих документов,
+						то права рассматривать его у вас нет. В таком случае, секретарь должен
+						запросить недостающий документ</p>
+				</section>
+				<section>
+					<p>Когда все документы собраны, можно приступать к обсуждению дела и голосованию по нему.
+						На все про все у студсовета есть 5 рабочих дней начиная от получения доукментов и заканчивая</p>
+				</section>
+				<section>
+					<p>Голосования обычно проводятся в так называемых "Рабочих группах", приватных группах, созданных
+						во ВКонтакте (вероятно, у вас она уже есть). Сами голосования выглядят следующим
+						образом (клик чтобы развернуть)</p>
+					<img class="stretch lightense" src="img/voting.png" alt="Голосование по дисциплинарке">
+				</section>
+				<section>
+					<p>Как только собрался кворум (<strong>половина</strong> от состава локального студсовета)
+						и выполнились требования положения (о них пойдет речь далее)
+						голосование необходимо закрыть и написать соответствующую выписку.</p>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/zoom-js/zoom.js',
+					async: true
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				},
+				{
+					src: 'plugin/lightense/lightense.js',
+					async: true
+				}
+			],
+			slideNumber: 'c/t'
+		});
+		window.addEventListener('load', function() {
+			var el = document.querySelectorAll('img.lightense');
+			Lightense(el);
+		}, false);
+	</script>
+</body>
+
+</html>
