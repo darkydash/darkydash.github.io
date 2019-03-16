@@ -21,6 +21,11 @@
         link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
+    <style type="text/css">
+        .align-center p{
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,6 +41,12 @@
             <section>
                 <h3>TrippleX</h3>
                 <img src="img/productiveWork.jpg" alt="Productive work" class="stretch">
+            </section>
+            <section>
+                <h3>Вклад участников в проект</h3>
+                <p>Полина Силина - 50%</p>
+                <p>Быков Кирилл - 50%</p>
+                <p>Кривцов Иван - 0%</p>
             </section>
             <section>
                 <img src="img/table1.jpg" class="stretch">
@@ -71,6 +82,8 @@
                 <!--</table>-->
             </section>
             <section>
+                <p>ISFJ - этико-сенсорный интроверт рационал</p>
+                <p>ESTP - сенсорно-логический экстраверт иррационал</p>
                 <img src="img/table2.jpg" class="stretch">
             </section>
             <section>
@@ -82,7 +95,10 @@
             <img src="img/theAwesomeSite.png" class="stretch">
         </section>
         <section>
-            <section><h3>Потенциальные пользователи</h3></section>
+            <section class="align-center"><h3>Потенциальные пользователи</h3>
+                <p>Люди без профильного образования, интересующиеся анализом данных и машинным обучением </p>
+                <p>Работодатели, желающие увеличить количество полезных компетенций у своих подчиненных</p>
+            </section>
             <section><img src="img/dfd2.jpg" class="stretch"></section>
             <section><img src="img/dfd1.jpg" class="stretch"></section>
             <section><img src="img/table4.jpg" class="stretch"></section>
@@ -93,9 +109,8 @@
                 <li>Регистрация новых пользователей</li>
                 <li>Вход и выход в игру зарегистрированных пользователей</li>
                 <li>Сохранение пользовательских данных</li>
-                <li>Написание + отправка код</li>
+                <li>Написание + отправка кода</li>
                 <li>Вердикты тестирующей системы</li>
-                <li>Описание архитектуры проекта</li>
             </ol>
         </section>
         <section>
@@ -128,6 +143,17 @@
             </section>
             <section>
                 <img src="img/analysis1.jpg" class="stretch">
+            </section>
+            <section>
+                <h>Важные риски</h>
+                <ol style="font-size: 0.8em">
+                    <li>Отсутствие общего понимания задачи между заказчиком и командой</li>
+                    <li>Недостаточная квалификация программистов при использовании новых технологий</li>
+                    <li>Превышение сроков проекта</li>
+                    <li>Неоптимальный выбор структур данных</li>
+                    <li>Потеря программного кода</li>
+                    <li>Поломка техники</li>
+                </ol>
             </section>
         </section>
         <section>
