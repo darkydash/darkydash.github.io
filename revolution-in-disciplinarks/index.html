@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Аве секретариату!</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Revolution in disciplinarks</h2>
+			</section>
+			<section>
+				<section>
+					<p class="fragment fade-out">1. Учебный офис присылает письмо на почту БСС </p>
+					<p class="fragment">1'. Учебный офис присылает письмо на почту локального студсовета (далее локалка) и в копию БСС. В теме письма - вид документа: НПА/Дисциплинарка </p>
+				</section>
+				<section>
+					<p class="fragment fade-out">2. БСС отправляет письмо на почту локалки и прикрепляет документы на доску ПК в трелло</p>
+					<p class="fragment">2'. Локалка отправляет письмо на специальную почту, которая привязана к трелло и прикрепляет документы на доску ПК </p>
+				</section>
+				<section>
+					<p>3'. БСС регистрирует дату начала рассмотрения дисциплинарки</p>
+				</section>
+				<section>
+					<p class="fragment fade-out">4. ПК и локалке дается X дней на рассмотрение дела</p>
+					<p class="fragment">4'. ПК дается 3 дня на рассмотрение дела и подготовку выписки, в это время локалки проводят обсуждения, разговоры с администрацией и т.п.</p>
+				</section>
+				<section>
+					<p>5'. При появлении заключения ее переносит в доску локального студсовета (которая автоматически рассылает заключения по почтам локалок) секретарь БСС (его может дублировать секретарь ПК)</p>
+				</section>
+				<section>
+					<p class="fragment fade-out">6. После появления заключения от ПК и локалки БСС голосует и формирует решение</p>
+					<p class="fragment">6'. После появления заключения от ПК и завершения своих подготовительных действий локальный студсовет проводит голосование и формирует решение по его итогам не позднее, чем через 3 суток с момента появления заключения от ПК. </p>
+				</section>
+				<section>
+					<p>7'. Финальное решение отправляется в учебный офис с копией в БСС</p>
+				</section>
+				<section>
+					<p>8'. Если сроки прошли, а локалка не подготовила выписку, то БСС ставит голосование в резервный день и принимает свое решение</p>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/zoom-js/zoom.js',
+					async: true
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				},
+				{
+					src: 'plugin/lightense/lightense.js',
+					async: true
+				}
+			],
+			slideNumber: 'c/t'
+		});
+		window.addEventListener('load', function() {
+			var el = document.querySelectorAll('img.lightense');
+			Lightense(el);
+		}, false);
+	</script>
+</body>
+
+</html>
