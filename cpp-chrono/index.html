@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>United Russia party</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+				<section>
+					<h2>Замер времени с Chrono</h2>
+				</section>
+				<section>
+					<p style="font-size: 2.5em">#include &#x3C;chrono&#x3E;</p>
+				</section>
+				<section>
+					<p style="font-size: 1.3em">std::chrono::high_resolution_clock::now();</p>
+				</section>
+				<section>
+					<p style="font-size: 1.5em">std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count();</p>
+				</section>
+				<section>
+					<p style="font-size: 1.5em">high_resolution_clock::time_point</p>
+				</section>
+				<section>
+					<ul style="font-size: 1.5em">
+						<li>hours</li>
+						<li>minutes</li>
+						<li>seconds</li>
+						<li>milliseconds</li>
+						<li>microseconds</li>
+						<li>nanoseconds</li>
+					</ul>
+				</section>
+				<section>
+				<pre class="stretch">
+				<code class="stretch" data-trim data-noescape>
+for (int i = 0; i < 12; ++i) {
+    if (i < 2) {
+      res = alg->execute(s, t);
+      cout << "#" << flush;
+      continue;
+    }
+
+    auto start = std::chrono::high_resolution_clock::now();
+    res = alg->execute(s, t);
+    auto elapsed = std::chrono::high_resolution_clock::now() - start;
+    long long milliseconds =
+        std::chrono::duration_cast&#x3C;std::chrono::milliseconds>(elapsed).count();
+
+    sum += milliseconds;
+    cout << "#" << flush;
+  }
+				</code>
+				</pre>
+				</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+width: '100%',
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/zoom-js/zoom.js',
+					async: true
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				},
+				{
+					src: 'plugin/chart/Chart.min.js'
+				},
+				{
+					src: 'plugin/chart/csv2chart.js'
+				},
+			],
+			slideNumber: 'c/t'
+		});
+	</script>
+</body>
+
+</html>
