@@ -93,53 +93,6 @@
 				<h2>SVM vs Softmax</h2>
 				<img src="img/4.png" alt="">
 			</section>
-			<section>
-				<h2>Замер времени с Chrono</h2>
-			</section>
-			<section>
-				<p style="font-size: 2.5em">#include &#x3C;chrono&#x3E;</p>
-			</section>
-			<section>
-				<p style="font-size: 1.3em">std::chrono::high_resolution_clock::now();</p>
-			</section>
-			<section>
-				<p style="font-size: 1.5em">std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count();</p>
-			</section>
-			<section>
-				<p style="font-size: 1.5em">high_resolution_clock::time_point</p>
-			</section>
-			<section>
-				<ul style="font-size: 1.5em">
-					<li>hours</li>
-					<li>minutes</li>
-					<li>seconds</li>
-					<li>milliseconds</li>
-					<li>microseconds</li>
-					<li>nanoseconds</li>
-				</ul>
-			</section>
-			<section>
-				<pre class="stretch">
-				<code class="stretch" data-trim data-noescape>
-for (int i = 0; i < 12; ++i) {
-    if (i < 2) {
-      res = alg->execute(s, t);
-      cout << "#" << flush;
-      continue;
-    }
-
-    auto start = std::chrono::high_resolution_clock::now();
-    res = alg->execute(s, t);
-    auto elapsed = std::chrono::high_resolution_clock::now() - start;
-    long long milliseconds =
-        std::chrono::duration_cast&#x3C;std::chrono::milliseconds>(elapsed).count();
-
-    sum += milliseconds;
-    cout << "#" << flush;
-  }
-				</code>
-				</pre>
-			</section>
 		</div>
 	</div>
 
