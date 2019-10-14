@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Softmax</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Softmax</h2>
+				<h4>Presentation by Bykov Kirill, BSE173</h4>
+			</section>
+			<section>\[ \sum \]</section>
+			<section>
+				<section>
+					<h2>Linear Classification</h2>
+				</section>
+				<section>
+					<h2>Score function</h2>
+					\[ f(x_i, W, b)=Wx_i+b \]
+					\[ f(x_i, W)=Wx_i \]
+				</section>
+				<section>
+					<img src="img/1.jpg" alt="">
+				</section>
+				<section>
+					<img src="img/2.jpg" alt="">
+				</section>
+				<section>
+					<h2>Loss function</h2>
+					MSVM
+					\[ L_i = \sum_{j\neq y_i} \max(0, s_j - s_{y_i} + \Delta) \]
+
+					\[ L = \underbrace{ \frac{1}{N} \sum_i L_i }_\text{data loss} + \underbrace{ \lambda R(W)
+					}_\text{regularization loss} \\\\ \]
+				</section>
+				<section>
+					<img src="img/3.jpg" alt="">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Softmax classifier</h2>
+				</section>
+				<section>
+					<h2>Loss function</h2>
+					Softmax
+					\[ L_i = -\log\left(\frac{e^{f_{y_i}}}{ \sum_j e^{f_j} }\right) \]
+					\[ f_j \text{- scores} \]
+				</section>
+				<section>
+					<h2>Softmax function</h2>
+					\[ f_j(z) = \frac{e^{z_j}}{\sum_k e^{z_k}} \]
+				</section>
+				<section>
+					<h2>Probabilistic interpretation</h2>
+					\[ P(y_i \mid x_i; W) = \frac{e^{f_{y_i}}}{\sum_j e^{f_j} } \]
+				</section>
+				<section>
+					<h2>Numeric stability</h2>
+					\[ \frac{e^{f_{y_i}}}{\sum_j e^{f_j}}
+					= \frac{Ce^{f_{y_i}}}{C\sum_j e^{f_j}}
+					= \frac{e^{f_{y_i} + \log C}}{\sum_j e^{f_j + \log C}} \]
+
+					\[ \log C = -\max_j f_j \]
+				</section>
+				<section>
+					<h2>Example</h2>
+					\[ [1, -2, 0] \rightarrow [e^1, e^{-2}, e^0] = [2.71, 0.14, 1] \rightarrow [0.7, 0.04, 0.26] \]
+				</section>
+			</section>
+			<section>
+				<h2>SVM vs Softmax</h2>
+				<img src="img/4.png" alt="">
+			</section>
+			<section>
+				<h2>Замер времени с Chrono</h2>
+			</section>
+			<section>
+				<p style="font-size: 2.5em">#include &#x3C;chrono&#x3E;</p>
+			</section>
+			<section>
+				<p style="font-size: 1.3em">std::chrono::high_resolution_clock::now();</p>
+			</section>
+			<section>
+				<p style="font-size: 1.5em">std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count();</p>
+			</section>
+			<section>
+				<p style="font-size: 1.5em">high_resolution_clock::time_point</p>
+			</section>
+			<section>
+				<ul style="font-size: 1.5em">
+					<li>hours</li>
+					<li>minutes</li>
+					<li>seconds</li>
+					<li>milliseconds</li>
+					<li>microseconds</li>
+					<li>nanoseconds</li>
+				</ul>
+			</section>
+			<section>
+				<pre class="stretch">
+				<code class="stretch" data-trim data-noescape>
+for (int i = 0; i < 12; ++i) {
+    if (i < 2) {
+      res = alg->execute(s, t);
+      cout << "#" << flush;
+      continue;
+    }
+
+    auto start = std::chrono::high_resolution_clock::now();
+    res = alg->execute(s, t);
+    auto elapsed = std::chrono::high_resolution_clock::now() - start;
+    long long milliseconds =
+        std::chrono::duration_cast&#x3C;std::chrono::milliseconds>(elapsed).count();
+
+    sum += milliseconds;
+    cout << "#" << flush;
+  }
+				</code>
+				</pre>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			width: '100%',
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			},
+			{
+				src: 'plugin/zoom-js/zoom.js',
+				async: true
+			},
+			{
+				src: 'plugin/markdown/markdown.js'
+			},
+			{
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function () {
+					hljs.initHighlightingOnLoad();
+				}
+			},
+			{
+				src: 'plugin/chart/Chart.min.js'
+			},
+			{
+				src: 'plugin/chart/csv2chart.js'
+			},
+			{
+				src: 'plugin/math/math.js', async: true
+			}
+			],
+			slideNumber: 'c/t'
+		});
+	</script>
+</body>
+
+</html>
